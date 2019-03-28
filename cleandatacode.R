@@ -376,6 +376,12 @@ for (iterator in 1:sum(yIndex))
   
 }
 
+#PCA Analysis
+
+pc <- princomp(NewDF, cor=TRUE, score=TRUE)
+summary(pc)
+                               
+                               
 filteredSubset <- rbind(list[lHabitsIndex,],list[lHealthIndex,],list[lPsycheIndex,],list[lGPAIndex,],list[lGenderIndex,])
 filtered <- NewDF[,as.character(filteredSubset[,1])] %>% filter_all(all_vars(!is.na(.)))
 colnames(filtered) <- paste(as.character(join(filteredSubset,list[,c(1,3)])[,3, drop=TRUE]),as.character(join(filteredSubset,list[,c(1,3)])[,1, drop=TRUE]))
